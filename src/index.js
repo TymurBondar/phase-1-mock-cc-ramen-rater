@@ -38,6 +38,7 @@ fetch("http://localhost:3000/ramens")
         ramens.forEach(ramen => {
             displayPhoto(ramen);
         });
+        displayDetails(ramens[0]);
     })
 
 newRamenForm.addEventListener("submit", (e) => {
