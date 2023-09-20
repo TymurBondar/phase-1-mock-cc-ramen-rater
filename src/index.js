@@ -1,6 +1,8 @@
 const ramenMenuDiv = document.getElementById("ramen-menu");
 const newRamenForm = document.getElementById("new-ramen");
+const editRamenForm = document.getElementById("edit-ramen");
 let newId = 1;
+let selectedId = 0;
 // write your code here
 // new code
 //core challenge 1
@@ -25,6 +27,7 @@ function displayPhoto(ramen) {
     img.id = ramen.id;
     img.addEventListener("click", () => {
         displayDetails(ramen);
+        selectedId = img.id;
     })
     newId++;
     return ramenMenuDiv.append(img);
@@ -62,4 +65,25 @@ newRamenForm.addEventListener("submit", (e) => {
             displayPhoto(newRamen);
             displayDetails(newRamen);
         })
+})
+
+editRamenForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let rating = e.target.rating.value;
+    let newComment = e.target.newcomment.value;
+    fetch(`http://localhost:3000/ramens/${selectedId}`, {
+        method: "PATCH",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            rating: rating,
+            comment: newComment
+        })
+    })
+    .then(() =>{
+        //change selected comment and rating
+        document.getElementById("rating-display").textContent = rating;
+        document.getElementById("comment-display").textContent = newComment;
+    })
 })
