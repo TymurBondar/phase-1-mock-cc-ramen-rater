@@ -39,6 +39,22 @@
       "image": "./assets/ramen/kojiro.jpg",
       "rating": 6,
       "comment": "Perfect for a cold night."
+    },
+    {
+      "id": 6,
+      "name": "Italian nightmare",
+      "restaurant": "Vatican Mcdonalds",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Touched_by_His_Noodly_Appendage_HD.jpg/800px-Touched_by_His_Noodly_Appendage_HD.jpg",
+      "rating": "6",
+      "comment": ""
+    },
+    {
+      "id": 7,
+      "name": "mom's spaghetti",
+      "restaurant": "8 mile local pasta place",
+      "image": "https://preview.redd.it/which-is-your-preferred-flying-spaghetti-monster-v0-78yz1oq6c4fb1.jpg?width=640&crop=smart&auto=webp&s=be9799a4dc73dd91e2d2b456533f6ab944809f28",
+      "rating": "8",
+      "comment": "if you had one chance..."
     }
   ]
 }

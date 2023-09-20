@@ -17,7 +17,6 @@ function displayDetails(ramen) {
     restaurant.textContent = ramen.restaurant;
     rating.textContent = ramen.rating;
     comment.textContent = ramen.comment;
-    newId++;
 }
 
 function displayPhoto(ramen) {
@@ -27,6 +26,7 @@ function displayPhoto(ramen) {
     img.addEventListener("click", () => {
         displayDetails(ramen);
     })
+    newId++;
     return ramenMenuDiv.append(img);
 }
 
@@ -51,6 +51,15 @@ newRamenForm.addEventListener("submit", (e) => {
         rating: e.target.rating.value,
         comment: e.target.comment.value
     }
-    displayPhoto(newRamen);
-    displayDetails(newRamen);
+    fetch("http://localhost:3000/ramens", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(newRamen)
+    })
+        .then(() => {
+            displayPhoto(newRamen);
+            displayDetails(newRamen);
+        })
 })
