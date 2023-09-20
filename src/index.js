@@ -1,6 +1,7 @@
 const ramenMenuDiv = document.getElementById("ramen-menu");
 const newRamenForm = document.getElementById("new-ramen");
 const editRamenForm = document.getElementById("edit-ramen");
+const deleteBtn = document.getElementById("delete");
 let newId = 1;
 let selectedId = 0;
 // write your code here
@@ -81,9 +82,18 @@ editRamenForm.addEventListener("submit", (e) => {
             comment: newComment
         })
     })
-    .then(() =>{
-        //change selected comment and rating
-        document.getElementById("rating-display").textContent = rating;
-        document.getElementById("comment-display").textContent = newComment;
+        .then(() => {
+            //change selected comment and rating
+            document.getElementById("rating-display").textContent = rating;
+            document.getElementById("comment-display").textContent = newComment;
+        })
+})
+
+deleteBtn.addEventListener("click", () => {
+    fetch(`http://localhost:3000/ramens/${selectedId}`, {
+        method: "DELETE",
+    })
+    .then(() => {
+        //delete from DOM
     })
 })
